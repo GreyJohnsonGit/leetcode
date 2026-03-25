@@ -1,12 +1,8 @@
 class Solution(object):
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
         nums = [nums1, nums2]
-        last_length = float('inf')
         while len(nums[0]) + len(nums[1]) > 10:
             medians = [self.median(nums[0]), self.median(nums[1])]
-            print("Medians: ", medians)
-            print("Nums: ", nums)
-
             if len(nums[0]) == 1 or len(nums[1]) == 1:
                 exhausted_array_index = 0
                 if len(nums[1]) == 1:
@@ -38,13 +34,6 @@ class Solution(object):
                         return post_median
                     else:
                         return final_element
-
-            new_length = len(nums[0]) + len(nums[1])
-            if last_length == new_length:
-                raise Exception("Arrays are not getting smaller")
-            print("New length: ", new_length)
-            last_length = new_length
-
 
             has_fewer_elements = 1
             if len(nums[0]) < len(nums[1]):
