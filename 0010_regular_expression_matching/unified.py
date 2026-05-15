@@ -32,7 +32,6 @@ class Parser:
             mode = "star"
 
         while pattern_index < len(pattern):
-            print("Character:", pattern[pattern_index], "Mode:", mode, "Index:", pattern_index)
             if mode == "string":
                 next_star_index = pattern.find("*", pattern_index)
                 if next_star_index == -1:
